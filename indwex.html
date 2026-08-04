@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Hub — Gift of Nature</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================
+           1. CSS STYLES & THEME VARIABLES
+           ========================================== */
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #81c784;
+            --dark-color: #1b5e20;
+            --light-bg: #f4f8f5;
+            --text-color: #333333;
+            --white: #ffffff;
+            --accent-gold: #e6a100;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation Bar */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 8%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        /* Styled SVG Graphic Emblem matching the logo */
+        .brand-logo-emblem {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark-color);
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .logo-text .tagline {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+
+        /* Section Layouts */
+        section {
+            padding: 100px 8% 60px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: var(--dark-color);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        /* Action Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(27, 94, 32, 0.3);
+        }
+
+        /* 1. Hero Section */
+        #home {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding-top: 130px;
+        }
+
+        .hero-content {
+            flex: 1.2;
+        }
+
+        .hero-content h1 {
+            font-size: 40px;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 17px;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .hero-image {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-badge {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 6px solid var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .logo-badge i.main-icon {
+            font-size: 45px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .logo-badge h2 {
+            font-size: 26px;
+            color: var(--dark-color);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 2px 0;
+            line-height: 1;
+        }
+
+        .logo-badge .badge-sub {
+            font-size: 11px;
+            color: var(--primary-color);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-top: 1px solid var(--secondary-color);
+            border-bottom: 1px solid var(--secondary-color);
+            padding: 3px 10px;
+            margin-top: 8px;
+        }
+
+        /* Grid Containers for Services & Features */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .card i {
+            font-size: 38px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* About Section */
+        .about-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+
+        .about-box > p {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        .objective-card {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .objective-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+
+        /* Contact Form Layout */
+        .contact-wrapper {
+            display: flex;
+            gap: 40px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #555;
+        }
+
+        .contact-info p i {
+            color: var(--primary-color);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* Footer & Disclaimer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 40px 8% 20px;
+            text-align: center;
+        }
+
+        .disclaimer {
+            background-color: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--accent-gold);
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .disclaimer strong {
+            color: var(--accent-gold);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            #home, .contact-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-info p {
+                justify-content: center;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 25px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         2. HEADER & NAVIGATION BAR
+         ========================================== -->
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="logo-container">
+                <div class="brand-logo-emblem">
+                    <i class="fa-solid fa-leaf" style="color: var(--primary-color); font-size: 22px;"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="title">AYUSH HUB</span>
+                    <span class="tagline">Gift of Nature</span>
+                </div>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#blogs">Health Tips</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================
+         3. HERO SECTION
+         ========================================== -->
+    <section id="home">
+        <div class="hero-content">
+            <h1>Natural Healing & Personalized Wellness</h1>
+            <p><strong>Ayush Hub — Gift of Nature</strong><br>
+            A digital health platform focused on improving your wellbeing through a natural lifestyle, balanced nutrition, and naturopathy guidance.</p>
+            <a href="#contact" class="btn">Get Started Today</a>
+        </div>
+        <div class="hero-image">
+            <div class="logo-badge">
+                <i class="fa-solid fa-leaf main-icon"></i>
+                <h2>AYUSH HUB</h2>
+                <div class="badge-sub">GIFT OF NATURE</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         4. ABOUT US SECTION
+         ========================================== -->
+    <section id="about">
+        <h2 class="section-title">About Ayush Hub</h2>
+        <p class="section-subtitle">Your Digital Partner for Holistic Living</p>
+        
+        <div class="about-box">
+            <p>Ayush Hub is a digital health platform that focuses on improving health through a natural lifestyle, a balanced diet, and naturopathy. We provide condition-specific diet plans, natural remedies, lifestyle modifications, yoga routines, and exercise guidance tailored to your needs.</p>
+            
+            <div class="grid-container">
+                <div class="objective-card">
+                    <h3>🌿 Self-Healing Capacity</h3>
+                    <p>Designed to enhance the body's natural healing abilities through natural remedies and holistic principles.</p>
+                </div>
+                <div class="objective-card">
+                    <h3>🛡️ Preventive Care</h3>
+                    <p>Focused on reducing the risk of chronic diseases through health education and balanced living.</p>
+                </div>
+                <div class="objective-card">
+                    <h3>🌱 Sustainable Habits</h3>
+                    <p>Helping you foster a healthy, long-term lifestyle change without relying strictly on synthetic interventions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         5. SERVICES SECTION
+         ========================================== -->
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive Naturopathic & Lifestyle Programs</p>
+
+        <div class="grid-container">
+            <div class="card">
+                <i class="fa-solid fa-apple-whole"></i>
+                <h3>Condition-Specific Diet Plans</h3>
+                <p>Personalized nutrition strategies tailored for specific diseases and health conditions.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-seedling"></i>
+                <h3>Naturopathy & Natural Healing</h3>
+                <p>Expert guidance on traditional naturopathy methods and holistic recovery techniques.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <h3>Lifestyle Improvement Programs</h3>
+                <p>Structured habit modifications for better sleep, stress reduction, and overall vitality.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-spa"></i>
+                <h3>Yoga & Exercise Routines</h3>
+                <p>Targeted yoga postures and physical activity recommendations matched to your physical capacity.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-bottle-water"></i>
+                <h3>Detox & Wellness Plans</h3>
+                <p>Safe body cleansing routines and wellness programs designed to revitalize your body.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-book-medical"></i>
+                <h3>Preventive Health Education</h3>
+                <p>Actionable educational resources empowering you to make proactive health decisions.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-user-doctor"></i>
+                <h3>Personalized Health Guidance</h3>
+                <p>One-on-one consultation and personalized guidance tailored to your individual health goals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         6. BLOGS / HEALTH TIPS SECTION
+         ========================================== -->
+    <section id="blogs">
+        <h2 class="section-title">Health Articles & Tips</h2>
+        <p class="section-subtitle">Insights into natural remedies and healthy living</p>
+
+        <div class="grid-container">
+            <div class="card" style="text-align: left;">
+                <h3>🌿 Understanding Naturopathy</h3>
+                <p>Learn how natural healing principles work with your body's intrinsic mechanisms to boost wellness...</p>
+            </div>
+            <div class="card" style="text-align: left;">
+                <h3>🧘‍♂️ Daily Yoga for Vitality</h3>
+                <p>Simple morning yoga routines designed to improve digestion, flexibility, and daily energy levels...</p>
+            </div>
+            <div class="card" style="text-align: left;">
+                <h3>🥗 Power of Balanced Nutrition</h3>
+                <p>How condition-specific diets can assist in managing lifestyle disorders effectively...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         7. CONTACT SECTION
+         ========================================== -->
+    <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">Start Your Personalized Health Journey</p>
+
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Ayush Hub</h3>
+                <p><i class="fa-solid fa-envelope"></i> contact@ayushhub.com</p>
+                <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fa-solid fa-location-dot"></i> Digital Health Platform, India</p>
+            </div>
+            <div class="contact-form">
+                <form id="healthForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Your Mobile Number" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="4" placeholder="Mention your health goals or queries..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         8. FOOTER & DISCLAIMER
+         ========================================== -->
+    <footer>
+        <div class="disclaimer">
+            <strong>⚠️ Important Notice:</strong> The information on Ayush Hub is intended for health education and lifestyle guidance. Consulting a qualified doctor is essential in cases of serious or emergency medical conditions. Do not discontinue any ongoing medication without a doctor's advice.
+        </div>
+        <p>&copy; 2026 Ayush Hub - All Rights Reserved | Gift of Nature</p>
+    </footer>
+
+    <!-- ==========================================
+         9. JAVASCRIPT (Interactive Functionality)
+         ========================================== -->
+    <script>
+        // Toggle Navigation Bar on Mobile Devices
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu on selecting a navigation link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Contact Form Handler
+        document.getElementById('healthForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for reaching out to Ayush Hub! We have received your query and will contact you shortly.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
