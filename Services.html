@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services — Ayush Hub</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================
+           1. CSS STYLES & THEMING
+           ========================================== */
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #81c784;
+            --dark-color: #1b5e20;
+            --light-bg: #f4f8f5;
+            --text-color: #333333;
+            --white: #ffffff;
+            --accent-gold: #e6a100;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Header Section */
+        .services-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--white);
+            padding: 8px 20px;
+            border-radius: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 15px;
+            border: 1px solid var(--secondary-color);
+        }
+
+        .brand-badge i {
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+
+        .brand-badge span {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark-color);
+            letter-spacing: 1px;
+        }
+
+        .services-header h1 {
+            font-size: 38px;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .services-header p {
+            font-size: 16px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Filter Controls */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            background: var(--white);
+            border: 1px solid #ddd;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        /* Services Grid Layout */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 35px 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-color);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--light-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon i {
+            font-size: 26px;
+            color: var(--primary-color);
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            color: var(--dark-color);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .btn-learn {
+            align-self: flex-start;
+            background: transparent;
+            color: var(--primary-color);
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+            padding: 0;
+        }
+
+        .btn-learn:hover {
+            color: var(--dark-color);
+            gap: 12px;
+        }
+
+        /* Disclaimer Box */
+        .disclaimer-box {
+            background-color: rgba(230, 161, 0, 0.08);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+            font-size: 13px;
+            margin-top: 50px;
+            line-height: 1.6;
+        }
+
+        .disclaimer-box strong {
+            color: var(--accent-gold);
+        }
+
+        /* Modal Popup */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: var(--white);
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .modal-title {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .modal-body {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 30px 15px; }
+            .services-header h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- ==========================================
+             2. HEADER SECTION
+             ========================================== -->
+        <div class="services-header">
+            <div class="brand-badge">
+                <i class="fa-solid fa-leaf"></i>
+                <span>AYUSH HUB</span>
+            </div>
+            <h1>Our Services</h1>
+            <p>Empowering your wellness journey with holistic natural remedies, custom nutrition plans, and lifestyle modifications designed for sustainable living.</p>
+        </div>
+
+        <!-- ==========================================
+             3. FILTER BUTTONS
+             ========================================== -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All Services</button>
+            <button class="filter-btn" data-filter="nutrition">Diet & Nutrition</button>
+            <button class="filter-btn" data-filter="healing">Naturopathy</button>
+            <button class="filter-btn" data-filter="lifestyle">Lifestyle & Fitness</button>
+        </div>
+
+        <!-- ==========================================
+             4. SERVICES GRID (7 Core Services)
+             ========================================== -->
+        <div class="services-grid">
+
+            <!-- Service 1 -->
+            <div class="service-card" data-category="nutrition">
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-apple-whole"></i></div>
+                    <h3>Condition-Specific Diet Plans</h3>
+                    <p>Tailored dietary strategies targeting specific diseases and health conditions such as Diabetes, BP, PCOS, and Thyroid management.</p>
+                </div>
+                <button class="btn-learn" onclick="openModal('Condition-Specific Diet Plans', 'Our condition-specific diet plans are custom designed to support disease management using nature-based nutrition. We focus on natural whole foods to help regulate metabolic function, manage blood sugar levels, and balance body parameters.')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card" data-category="healing">
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h3>Naturopathy & Natural Healing</h3>
+                    <p>Guidance on natural remedies and traditional naturopathic healing protocols that stimulate your body’s self-repair mechanism.</p>
+                </div>
+                <button class="btn-learn" onclick="openModal('Naturopathy & Natural Healing', 'Naturopathy uses natural elements and holistic care to assist body recovery. This guidance focuses on non-invasive procedures, herbal therapies, and natural principles to reduce dependence on artificial supplements.')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card" data-category="lifestyle">
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3>Lifestyle Improvement Programs</h3>
+                    <p>Structured habit modification guidance focusing on improving sleep quality, stress management, and optimal daily routines.</p>
+                </div>
+                <button class="btn-learn" onclick="openModal('Lifestyle Improvement Programs', 'Small changes lead to big results. Our lifestyle programs guide you through circadian alignment, stress relief techniques, and daily routine adjustments to boost long-term energy and wellbeing.')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card" data-category="lifestyle">
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-spa"></i></div>
+                    <h3>Yoga & Exercise Recommendations</h3>
+                    <p>Targeted yoga postures and exercise routines designed specifically according to your physical capabilities and health goals.</p>
+                </div>
+                <button class="btn-learn" onclick="openModal('Yoga & Exercise Recommendations', 'Physical movement is vital for natural healing. We provide customized yoga asanas and moderate exercise plans suited for your age, fitness level, and specific physical conditions.')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card" data-category="healing">
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-bottle-water"></i></div>
+                    <h3>Detox & Wellness Plans</h3>
+                    <p>Safe, natural body cleansing and rejuvenation protocols to eliminate toxins and restore internal energy levels.</p>
+                </div>
+                <button class="btn-learn" onclick="openModal('Detox & Wellness Plans', 'Our natural cleansing plans focus on gentle body detoxification. Using natural juices, balanced hydration, and specific fasting protocols, we help refresh your digestive system and boost vital organ function.')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-card" data-category="lifestyle">
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-book-medical"></i></div>
+                    <h3>Preventive Health Education</h3>
+                    <p>Educational insights and preventive health guidance empowering you to reduce the risk of long-term lifestyle disorders.</p>
+                </div>
+                <button class="btn-learn" onclick="openModal('Preventive Health Education', 'Knowledge is the best medicine. We offer educational resources and guidance to help you understand your health, spot early warning signs, and take preventive steps before health issues develop.')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Service 7 -->
+            <div class="service-card" data-category="nutrition">
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                    <h3>Personalized Health Guidance</h3>
+                    <p>One-on-one tailored consultations designed to address your individual health concerns and lifestyle requirements.</p>
+                </div>
+                <button class="btn-learn" onclick="openModal('Personalized Health Guidance', 'Receive custom advice designed around your specific lifestyle, food preferences, and personal health goals through individual assessment and continuous support.')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+        </div>
+
+        <!-- ==========================================
+             5. DISCLAIMER
+             ========================================== -->
+        <div class="disclaimer-box">
+            <strong>⚠️ Important Notice:</strong> The information on Ayush Hub is intended for health education and lifestyle guidance. Consulting a qualified doctor is essential in cases of serious or emergency medical conditions. Do not discontinue any ongoing medication without a doctor's advice.
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+         6. MODAL POPUP
+         ========================================== -->
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3 class="modal-title" id="modalTitle">Service Title</h3>
+            <p class="modal-body" id="modalBody">Service description details go here...</p>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         7. JAVASCRIPT
+         ========================================== -->
+    <script>
+        // Category Filtering Functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                serviceCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Functionality
+        function openModal(title, text) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerText = text;
+            document.getElementById('serviceModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('serviceModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside box
+        window.onclick = function(event) {
+            const modal = document.getElementById('serviceModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+    </script>
+
+</body>
+</html>
