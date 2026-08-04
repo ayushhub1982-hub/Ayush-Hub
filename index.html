@@ -765,57 +765,72 @@
     </footer>
 
     <!-- FIREBASE SDK & CONNECTION -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    <!-- UPDATED FIREBASE & CONSULTATION SCRIPT -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyBYUKVKqR2SINni0HE7QACu-AfEL2U8M7w",
-            authDomain: "ayush-hub.firebaseapp.com",
-            projectId: "ayush-hub",
-            storageBucket: "ayush-hub.firebasestorage.app",
-            messagingSenderId: "880903540586",
-            appId: "1:880903540586:web:ce8e92faa763e46a7cdf13",
-            measurementId: "G-PEX061SL5Y"
-        };
+    const firebaseConfig = {
+        apiKey: "AIzaSyBYUKVKqR2SINni0HE7QACu-AfEL2U8M7w",
+        authDomain: "ayush-hub.firebaseapp.com",
+        projectId: "ayush-hub",
+        storageBucket: "ayush-hub.firebasestorage.app",
+        messagingSenderId: "880903540586",
+        appId: "1:880903540586:web:ce8e92faa763e46a7cdf13",
+        measurementId: "G-PEX061SL5Y"
+    };
 
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-        const consultationForm = document.getElementById('consultationForm');
-        const submitBtn = document.getElementById('submitBtn');
+    const consultationForm = document.getElementById('consultationForm');
+    const submitBtn = document.getElementById('submitBtn');
 
-        if(consultationForm) {
-            consultationForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
+    if (consultationForm) {
+        consultationForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-                submitBtn.innerText = 'Sending...';
-                submitBtn.disabled = true;
+            submitBtn.innerText = 'Sending...';
+            submitBtn.disabled = true;
 
-                const name = document.getElementById('userName').value;
-                const phone = document.getElementById('userPhone').value;
-                const query = document.getElementById('userQuery').value;
+            const name = document.getElementById('userName').value.trim();
+            const phone = document.getElementById('userPhone').value.trim();
+            const query = document.getElementById('userQuery').value.trim();
 
-                try {
-                    await addDoc(collection(db, "consultations"), {
+            if (!name || !phone) {
+                alert('Please enter your Name and Mobile Number.');
+                submitBtn.innerText = 'Submit Request';
+                submitBtn.disabled = false;
+                return;
+            }
+
+            const timeoutPromise = new Promise((_, reject) => 
+                setTimeout(() => reject(new Error('Request Timed Out')), 15000)
+            );
+
+            try {
+                await Promise.race([
+                    addDoc(collection(db, "consultations"), {
                         name: name,
                         phone: phone,
                         query: query,
                         timestamp: serverTimestamp()
-                    });
+                    }),
+                    timeoutPromise
+                ]);
 
-                    alert('Thank you! Your consultation request has been submitted successfully.');
-                    consultationForm.reset();
-                } catch (error) {
-                    console.error("Error submitting request: ", error);
-                    alert('Something went wrong while sending your request.');
-                } finally {
-                    submitBtn.innerText = 'Submit Request';
-                    submitBtn.disabled = false;
-                }
-            });
-        }
-    </script>
+                alert('Thank you! Your consultation request has been submitted successfully.');
+                consultationForm.reset();
+            } catch (error) {
+                console.error("Firebase Error: ", error);
+                alert('Error: Submission failed or Firebase Permission denied. Check Database Security Rules.');
+            } finally {
+                submitBtn.innerText = 'Submit Request';
+                submitBtn.disabled = false;
+            }
+        });
+    }
+</script>
 
     <!-- NAVIGATION LOGIC -->
     <script>
