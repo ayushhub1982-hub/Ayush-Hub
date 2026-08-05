@@ -678,91 +678,50 @@
 
         <!-- 5. CONTACT & CONSULTATION SECTION -->
         <section id="contact" class="page-section">
-            <h1 class="section-heading">Contact Us</h1>
-            <p class="section-subheading">Have questions or want to get in touch? Reach out to us directly or send a message.</p>
+    <h1 class="section-heading">Contact Us</h1>
+    <p class="section-subheading">Have questions or want to get in touch? Reach out to us directly or send a message.</p>
 
-            <div class="contact-container">
-                <!-- LEFT COLUMN: CONTACT DETAILS -->
-                <div class="contact-card">
-                    <h3 style="color:var(--dark-green); font-size:20px; margin-bottom:12px;">Get In Touch</h3>
-                    <p style="font-size:13.5px; color:var(--text-muted); line-height:1.6; margin-bottom:20px;">
-                        We are here to help you on your natural health journey. Feel free to connect via phone, email, or visit us.
-                    </p>
-                    
-                    <ul class="contact-info-list">
-                        <li>
-                            <i class="fa-solid fa-location-dot"></i>
-                            <div>
-                                <strong>Address</strong><br>
-                                Ayush Hub Health Center, India
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-envelope"></i>
-                            <div>
-                                <strong>Email</strong><br>
-                                ayushhub1982@gmail.com
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-phone"></i>
-                            <div>
-                                <strong>Phone / WhatsApp</strong><br>
-                                +91 9321430535
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-clock"></i>
-                            <div>
-                                <strong>Working Hours</strong><br>
-                                Mon – Sat: 9:00 AM – 6:00 PM
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+    <div class="contact-container" style="display: flex; justify-content: center; margin-top: 30px; padding: 0 20px;">
+        <!-- Get In Touch Card (Centered) -->
+        <div class="contact-card" style="background: #ffffff; padding: 40px 50px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); max-width: 550px; width: 100%;">
+            <h3 style="color: var(--dark-green, #11381e); font-size: 22px; margin-bottom: 12px;">Get In Touch</h3>
+            <p style="font-size: 13.5px; color: #666; line-height: 1.6; margin-bottom: 25px;">
+                We are here to help you on your natural health journey. Feel free to connect via phone, email, or visit us.
+            </p>
 
-                <!-- RIGHT COLUMN: FIREBASE CONNECTED FORM -->
-                <div class="contact-card">
-                    <h3 style="color:var(--dark-green); font-size:20px; margin-bottom:15px;">Book Consultation</h3>
-                    <form id="consultationForm">
-                        <input type="text" id="userName" placeholder="Your Name" required style="width:100%; padding:12px 15px; margin-bottom:12px; border:1px solid #ddd; border-radius:8px; font-size:14px;">
-                        <input type="tel" id="userPhone" placeholder="Mobile Number" required style="width:100%; padding:12px 15px; margin-bottom:12px; border:1px solid #ddd; border-radius:8px; font-size:14px;">
-                        <textarea id="userQuery" placeholder="Your Health Query / Message" rows="4" style="width:100%; padding:12px 15px; margin-bottom:15px; border:1px solid #ddd; border-radius:8px; font-size:14px;"></textarea>
-                        <button type="submit" id="submitBtn" class="btn-card" style="width:100%; padding:12px; font-size:14px;">Submit Request</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-brand">
-                <div class="logo-icon">
-                    <i class="fa-solid fa-leaf"></i>
-                </div>
-                <div>
-                    <span>AYUSH HUB</span><br>
-                    <small style="color:#9db2a0; font-size:10px; letter-spacing:1px;">GIFT OF NATURE</small>
-                </div>
-            </div>
-
-            <div class="social-links">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-
-            <div class="contact-details">
-                <p><i class="fa-solid fa-envelope"></i> ayushhub1982@gmail.com</p>
-                <p><i class="fa-solid fa-phone"></i> +91 9321430535</p>
-            </div>
+            <ul class="contact-info-list" style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 20px; display: flex; align-items: flex-start; gap: 15px;">
+                    <i class="fa-solid fa-location-dot" style="color: #2e7d32; font-size: 18px; margin-top: 3px;"></i>
+                    <div>
+                        <strong>Address</strong><br>
+                        Ayush Hub Health Center, India
+                    </div>
+                </li>
+                <li style="margin-bottom: 20px; display: flex; align-items: flex-start; gap: 15px;">
+                    <i class="fa-solid fa-envelope" style="color: #2e7d32; font-size: 18px; margin-top: 3px;"></i>
+                    <div>
+                        <strong>Email Support</strong><br>
+                        <a href="mailto:ayushhub1982@gmail.com" style="color: #333; text-decoration: none;">ayushhub1982@gmail.com</a>
+                    </div>
+                </li>
+                <li style="margin-bottom: 20px; display: flex; align-items: flex-start; gap: 15px;">
+                    <i class="fa-solid fa-phone" style="color: #2e7d32; font-size: 18px; margin-top: 3px;"></i>
+                    <div>
+                        <strong>Phone / WhatsApp</strong><br>
+                        <a href="tel:+919321430535" style="color: #333; text-decoration: none;">+91 9321430535</a>
+                    </div>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 15px;">
+                    <i class="fa-solid fa-clock" style="color: #2e7d32; font-size: 18px; margin-top: 3px;"></i>
+                    <div>
+                        <strong>Working Hours</strong><br>
+                        Mon – Sat: 9:00 AM – 6:00 PM
+                    </div>
+                </li>
+            </ul>
         </div>
-
-        <div class="copyright">
+    </div>
+</section>
             &copy; 2026 Ayush Hub — All Rights Reserved | Gift of Nature
         </div>
     </footer>
