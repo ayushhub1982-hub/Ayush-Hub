@@ -766,6 +766,7 @@
 
     <!-- FIREBASE SDK & CONNECTION -->
     <!-- UPDATED FIREBASE & CONSULTATION SCRIPT -->
+<!-- UPDATED GOOGLE FORM REDIRECT SCRIPT -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -784,50 +785,12 @@
     const db = getFirestore(app);
 
     const consultationForm = document.getElementById('consultationForm');
-    const submitBtn = document.getElementById('submitBtn');
 
     if (consultationForm) {
-        consultationForm.addEventListener('submit', async (e) => {
+        consultationForm.addEventListener('submit', (e) => {
             e.preventDefault();
-
-            submitBtn.innerText = 'Sending...';
-            submitBtn.disabled = true;
-
-            const name = document.getElementById('userName').value.trim();
-            const phone = document.getElementById('userPhone').value.trim();
-            const query = document.getElementById('userQuery').value.trim();
-
-            if (!name || !phone) {
-                alert('Please enter your Name and Mobile Number.');
-                submitBtn.innerText = 'Submit Request';
-                submitBtn.disabled = false;
-                return;
-            }
-
-            const timeoutPromise = new Promise((_, reject) => 
-                setTimeout(() => reject(new Error('Request Timed Out')), 15000)
-            );
-
-            try {
-                await Promise.race([
-                    addDoc(collection(db, "consultations"), {
-                        name: name,
-                        phone: phone,
-                        query: query,
-                        timestamp: serverTimestamp()
-                    }),
-                    timeoutPromise
-                ]);
-
-                alert('Thank you! Your consultation request has been submitted successfully.');
-                consultationForm.reset();
-            } catch (error) {
-                console.error("Firebase Error: ", error);
-                alert('Error: Submission failed or Firebase Permission denied. Check Database Security Rules.');
-            } finally {
-                submitBtn.innerText = 'Submit Request';
-                submitBtn.disabled = false;
-            }
+            // Directly open Google Form on button click
+            window.open('https://forms.gle/uakqZBnJoL18mp8fA', '_blank');
         });
     }
 </script>
