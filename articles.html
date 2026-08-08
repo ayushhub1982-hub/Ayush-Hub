@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AYUSH HUB - Articles</title>
     
-    <!-- AOS Animation CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
@@ -76,22 +75,21 @@
             transform: scale(1.05);
         }
 
+        .hero-banner {
+            height: 35vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1512290900673-0ed5c102c919?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
         .container {
-            padding: 80px 8%;
-            min-height: calc(100vh - 160px);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: #1b4d3e;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #555;
-            margin-bottom: 40px;
+            padding: 60px 8%;
         }
 
         .grid-3 {
@@ -102,11 +100,10 @@
 
         .card {
             background: white;
-            padding: 35px 25px;
             border-radius: 12px;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
         }
 
         .card:hover {
@@ -114,10 +111,21 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
-        .card h3 {
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .card-content h3 {
             color: #1b4d3e;
             margin-bottom: 12px;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
         }
 
         footer {
@@ -125,6 +133,7 @@
             padding: 25px;
             background: #1b4d3e;
             color: white;
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -142,22 +151,33 @@
         <a href="contact.html" class="btn-consult">Book Consultation</a>
     </header>
 
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-down">Health Articles</h2>
-        <p class="subtitle" data-aos="fade-up">Practical guides and natural tips to help you stay informed on preventive health.</p>
+    <div class="hero-banner" data-aos="fade-down">
+        <h1>Health Articles & Guides</h1>
+        <p>Practical guides and natural tips to help you stay informed on preventive health.</p>
+    </div>
 
+    <div class="container">
         <div class="grid-3">
             <div class="card" data-aos="zoom-in" data-aos-delay="100">
-                <h3>10 Tips for Daily Detox</h3>
-                <p>Simple morning habits and natural dietary routines to keep your body clean and energized.</p>
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" alt="Detox Tips">
+                <div class="card-content">
+                    <h3>10 Tips for Daily Detox</h3>
+                    <p>Simple morning habits and natural dietary routines to keep your body clean and energized.</p>
+                </div>
             </div>
             <div class="card" data-aos="zoom-in" data-aos-delay="200">
-                <h3>Herbal Tea Remedies</h3>
-                <p>How daily botanical infusions improve immune health, digestion, and systemic balance.</p>
+                <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" alt="Herbal Tea">
+                <div class="card-content">
+                    <h3>Herbal Tea Remedies</h3>
+                    <p>How daily botanical infusions improve immune health, digestion, and systemic balance.</p>
+                </div>
             </div>
             <div class="card" data-aos="zoom-in" data-aos-delay="300">
-                <h3>Managing Stress Daily</h3>
-                <p>Breathing techniques and organic natural routines to keep your daily anxiety levels under control.</p>
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80" alt="Stress Relief">
+                <div class="card-content">
+                    <h3>Managing Stress Daily</h3>
+                    <p>Breathing techniques and organic natural routines to keep your daily anxiety levels under control.</p>
+                </div>
             </div>
         </div>
     </div>
