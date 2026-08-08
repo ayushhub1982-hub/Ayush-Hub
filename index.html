@@ -3,431 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayush Hub - Natural Healing & Wellness</title>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #11381e;
-            --accent-color: #2e7d32;
-            --white: #ffffff;
-            --bg-light: #eef4f0;
-            --text-dark: #2c3e50;
-        }
+    <title>AYUSH HUB - Natural Healing & Wellness</title>
+    
+    <!-- AOS Animation Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+    <!-- Internal CSS Styles -->
+    <style>
+        /* CSS Reset & General Setup */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
+            background-color: #f4f8f5;
+            color: #2c3e50;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* NAVBAR */
+        /* Navbar Styling */
         header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 8%;
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 8%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .site-logo {
-            height: 45px;
-            width: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .logo-text {
-            font-size: 20px;
+        .logo {
+            font-size: 1.6rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: #1b4d3e;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            list-style: none;
-        }
-
-        .nav-links a {
+        nav a {
+            margin: 0 15px;
             text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            font-size: 15px;
-            transition: 0.3s;
+            color: #444;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--accent-color);
+        nav a:hover {
+            color: #2e7d32;
         }
 
-        .btn-consultation {
-            background-color: var(--primary-color);
-            color: var(--white) !important;
-            padding: 8px 18px;
-            border-radius: 20px;
-            transition: 0.3s;
+        .btn-consult {
+            background: #1b4d3e;
+            color: white;
+            padding: 10px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, background 0.3s ease;
         }
 
-        .btn-consultation:hover {
-            background-color: var(--accent-color);
+        .btn-consult:hover {
+            background: #2e7d32;
+            transform: scale(1.05);
         }
 
-        /* PAGE SECTIONS SPACING FIX */
-        .page-section {
-            padding-top: 0 !important;
-            padding-bottom: 40px !important;
-            margin-top: 0 !important;
-        }
-
-        /* HERO BANNERS */
-        .hero-banner {
-            position: relative;
-            height: 220px;
-            width: 100%;
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-
-        .hero-banner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(17, 56, 30, 0.7);
+        /* Hero Section Styling */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
             color: white;
-            text-align: center;
             padding: 0 20px;
         }
 
-        .hero-overlay h1, .hero-overlay h2 {
-            font-size: 30px;
-            margin-bottom: 5px;
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        .hero-overlay p {
-            font-size: 14px;
-            opacity: 0.9;
-            max-width: 600px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* SERVICES GRID */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-card i {
-            font-size: 36px;
-            color: var(--accent-color);
+        .hero h1 {
+            font-size: 3.2rem;
             margin-bottom: 15px;
         }
 
-        .service-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 20px;
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 650px;
         }
 
-        .service-card p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
+        /* Container & Grid Setup */
+        .section-container {
+            padding: 80px 8%;
         }
 
-        /* ARTICLES GRID */
-        .articles-grid {
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #1b4d3e;
+            margin-bottom: 40px;
+        }
+
+        .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
-        .article-card {
-            background: var(--white);
+        /* Card Styling & Hover Effects */
+        .card {
+            background: white;
+            padding: 35px 25px;
             border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
         }
 
-        .article-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
-        .article-body {
-            padding: 25px;
+        .card h3 {
+            color: #1b4d3e;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
         }
 
-        .article-body h3 {
-            font-size: 18px;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        .article-body p {
-            font-size: 13.5px;
-            color: #666;
-            margin-bottom: 18px;
-            line-height: 1.6;
+        form input, form textarea {
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1rem;
         }
 
-        .btn-card {
-            background: var(--primary-color);
+        form button {
+            background: #1b4d3e;
             color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 14px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
         }
 
-        /* ABOUT & CONTACT CARDS */
-        .card-box {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+        form button:hover {
+            background: #2e7d32;
         }
 
-        .contact-card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            max-width: 550px;
-            margin: 0 auto;
-        }
-
-        .contact-info-list {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-        }
-
-        .contact-info-list li {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .contact-info-list i {
-            color: var(--accent-color);
-            font-size: 18px;
-            margin-top: 3px;
-        }
-
-        /* FOOTER */
+        /* Footer */
         footer {
-            background-color: var(--primary-color);
-            color: var(--white);
             text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-            font-size: 13px;
+            padding: 25px;
+            background: #1b4d3e;
+            color: white;
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <!-- Header Navigation -->
     <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo-container">
-                <img src="logo.jpeg" alt="Ayush Hub Logo" class="site-logo">
-                <span class="logo-text">AYUSH HUB</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#articles">Articles</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-                <li><a href="consultation.html" class="btn-consultation">Book Consultation</a></li>
-            </ul>
+        <div class="logo">AYUSH HUB</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#articles">Articles</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
         </nav>
+        <a href="#contact" class="btn-consult">Book Consultation</a>
     </header>
 
-    <!-- 1. SERVICES SECTION -->
-    <section id="services" class="page-section">
-        <div class="hero-banner">
-            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80" alt="Services Banner">
-            <div class="hero-overlay">
-                <h2>Our Holistic Services</h2>
-                <p>Explore our natural healing practices designed to restore balance to your mind and body.</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero" data-aos="fade-down">
+        <h1>Welcome to AYUSH HUB</h1>
+        <p>Natural Healing & Holistic Wellness Solutions tailored for your daily vitality.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-container">
+        <h2 class="section-title" data-aos="fade-up">Our Holistic Services</h2>
+        <div class="grid-3">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Naturopathy Consultations</h3>
+                <p>Root-cause healing focused on natural therapies and lifestyle alignment.</p>
             </div>
-        </div>
-        <div class="container">
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fa-solid fa-leaf"></i>
-                    <h3>Naturopathy Consultations</h3>
-                    <p>Personalized holistic plans focused on natural therapies, lifestyle alignment, and root-cause healing.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fa-solid fa-apple-whole"></i>
-                    <h3>Custom Diet & Nutrition</h3>
-                    <p>Tailored meal strategies leveraging kitchen remedies and wholesome ingredients for daily vitality.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fa-solid fa-spa"></i>
-                    <h3>Lifestyle Disorder Support</h3>
-                    <p>Natural management routines for blood sugar, hypertension, weight control, and stress release.</p>
-                </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <h3>Custom Diet & Nutrition</h3>
+                <p>Personalized meal strategies leveraging kitchen remedies and clean food.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Lifestyle Disorder Support</h3>
+                <p>Natural routines for blood sugar, hypertension, and stress control.</p>
             </div>
         </div>
     </section>
 
-    <!-- 2. ARTICLES SECTION -->
-    <section id="articles" class="page-section">
-        <div class="hero-banner">
-            <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=1200&q=80" alt="Articles Banner">
-            <div class="hero-overlay">
-                <h2>Health Articles</h2>
-                <p>Practical guides and natural tips to help you stay informed on preventive health.</p>
+    <!-- Articles Section -->
+    <section id="articles" class="section-container" style="background-color: #eaf2ec;">
+        <h2 class="section-title" data-aos="fade-up">Health Articles</h2>
+        <div class="grid-3">
+            <div class="card" data-aos="zoom-in" data-aos-delay="100">
+                <h3>10 Tips for Daily Detox</h3>
+                <p>Simple habits to keep your digestive system clean and healthy naturally.</p>
             </div>
-        </div>
-        <div class="container">
-            <div class="articles-grid">
-                <div class="article-card">
-                    <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80" alt="Spices and Herbs">
-                    <div class="article-body">
-                        <h3>5 Foods That Naturally Lower Blood Sugar</h3>
-                        <p>Explore everyday natural kitchen spices and herbs that aid in maintaining healthy glucose levels.</p>
-                        <button class="btn-card">Read Article</button>
-                    </div>
-                </div>
-                <div class="article-card">
-                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80" alt="Morning Hydration">
-                    <div class="article-body">
-                        <h3>The Morning Hydration Habit</h3>
-                        <p>Discover why starting your day with warm water and lemon gently jumpstarts digestion.</p>
-                        <button class="btn-card">Read Article</button>
-                    </div>
-                </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="200">
+                <h3>Herbal Tea Remedies</h3>
+                <p>How botanical infusions improve immune health and promote calm.</p>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="300">
+                <h3>Managing Stress Daily</h3>
+                <p>Breathing techniques and natural routines to control daily anxiety.</p>
             </div>
         </div>
     </section>
 
-    <!-- 3. ABOUT SECTION -->
-    <section id="about" class="page-section">
-        <div class="hero-banner">
-            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80" alt="About Us Banner">
-            <div class="hero-overlay">
-                <h1>About Ayush Hub</h1>
-                <p>Bridging ancient naturopathic wisdom with modern lifestyle medicine.</p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="card-box">
-                <div style="margin-bottom: 15px;"><i class="fa-solid fa-leaf" style="color: #2e7d32; font-size: 32px;"></i></div>
-                <h3 style="font-size:22px; margin-bottom:15px; color: #11381e;">Gift of Nature</h3>
-                <p style="font-size: 15px; color:#444; line-height:1.8;">
-                    Ayush Hub is a dedicated digital health platform focused on bringing traditional naturopathy principles into daily living.<br><br>
-                    We empower individuals to prevent and manage lifestyle disorders naturally through targeted diet plans, mindful movement, and routine optimization.
-                </p>
-            </div>
+    <!-- About Section -->
+    <section id="about" class="section-container">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;" data-aos="fade-up">
+            <h2 class="section-title">About AYUSH HUB</h2>
+            <p style="font-size: 1.1rem; color: #555;">
+                AYUSH HUB is dedicated to bridging the gap between ancient natural healing wisdom and modern lifestyle needs. Our mission is to educate, treat, and guide individuals toward sustainable holistic health.
+            </p>
         </div>
     </section>
 
-    <!-- 4. CONTACT SECTION -->
-    <section id="contact" class="page-section">
-        <div class="hero-banner">
-            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80" alt="Contact Banner">
-            <div class="hero-overlay">
-                <h2>Contact Us</h2>
-                <p>Have questions or want to get in touch? Reach out to us directly.</p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="contact-card">
-                <h3 style="color: var(--primary-color); font-size:22px; margin-bottom:12px;">Get In Touch</h3>
-                <p style="font-size:13.5px; color:#666; margin-bottom:25px;">We are here to help you on your natural health journey. Feel free to connect via phone, email, or visit us.</p>
-                <ul class="contact-info-list">
-                    <li>
-                        <i class="fa-solid fa-location-dot"></i>
-                        <div><strong>Address</strong><br>Ayush Hub Health Center, India</div>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-envelope"></i>
-                        <div><strong>Email Support</strong><br><a href="mailto:ayushhub1982@gmail.com" style="color: #333; text-decoration: none;">ayushhub1982@gmail.com</a></div>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-phone"></i>
-                        <div><strong>Phone / WhatsApp</strong><br><a href="tel:+919321430535" style="color: #333; text-decoration: none;">+91 9321430535</a></div>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-clock"></i>
-                        <div><strong>Working Hours</strong><br>Mon – Sat: 9:00 AM – 6:00 PM</div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <!-- Contact Section -->
+    <section id="contact" class="section-container" style="background-color: #eaf2ec;">
+        <h2 class="section-title" data-aos="fade-up">Book a Consultation</h2>
+        <form data-aos="flip-up">
+            <input type="text" placeholder="Your Full Name" required>
+            <input type="email" placeholder="Your Email Address" required>
+            <textarea rows="5" placeholder="Describe your health goal or query..." required></textarea>
+            <button type="submit">Submit Request</button>
+        </form>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
-        &copy; 2026 Ayush Hub - All Rights Reserved | Gift of Nature
+        <p>&copy; 2026 AYUSH HUB. All Rights Reserved.</p>
     </footer>
 
+    <!-- AOS JavaScript Animation Library -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // AOS Animation Engine Initialize
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
 </body>
 </html>
