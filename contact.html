@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AYUSH HUB - Contact Us</title>
     
-    <!-- AOS Animation CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
@@ -76,24 +75,29 @@
             transform: scale(1.05);
         }
 
-        .container {
-            padding: 80px 8%;
-            min-height: calc(100vh - 160px);
+        .hero-banner {
+            height: 35vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: #1b4d3e;
-            margin-bottom: 30px;
+        .container {
+            padding: 60px 8%;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         form {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            max-width: 500px;
-            margin: 0 auto;
             background: white;
             padding: 40px;
             border-radius: 12px;
@@ -129,6 +133,7 @@
             padding: 25px;
             background: #1b4d3e;
             color: white;
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -146,9 +151,13 @@
         <a href="contact.html" class="btn-consult">Book Consultation</a>
     </header>
 
+    <div class="hero-banner" data-aos="fade-down">
+        <h1>Book Your Consultation</h1>
+        <p>Get in touch with us to start your natural wellness journey.</p>
+    </div>
+
     <div class="container">
-        <h2 class="section-title" data-aos="fade-down">Book a Consultation</h2>
-        <form data-aos="flip-up" data-aos-delay="100">
+        <form data-aos="zoom-in" data-aos-delay="100">
             <input type="text" placeholder="Your Full Name" required>
             <input type="email" placeholder="Your Email Address" required>
             <textarea rows="5" placeholder="Describe your health goal or query..." required></textarea>
