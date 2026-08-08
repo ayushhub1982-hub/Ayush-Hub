@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - AYUSH HUB</title>
+    <title>AYUSH HUB - About Us</title>
     
-    <!-- AOS Animation Library CSS -->
+    <!-- AOS Animation CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
@@ -44,6 +44,7 @@
             font-size: 1.6rem;
             font-weight: 700;
             color: #1b4d3e;
+            text-decoration: none;
         }
 
         nav a {
@@ -77,25 +78,33 @@
 
         .container {
             padding: 80px 8%;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
+            min-height: calc(100vh - 160px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        .title {
-            font-size: 2.5rem;
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
             color: #1b4d3e;
             margin-bottom: 20px;
         }
 
-        .about-text {
-            font-size: 1.15rem;
-            color: #444;
-            line-height: 1.8;
+        .about-box {
             background: white;
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .about-box p {
+            font-size: 1.15rem;
+            color: #444;
+            line-height: 1.8;
         }
 
         footer {
@@ -103,14 +112,13 @@
             padding: 25px;
             background: #1b4d3e;
             color: white;
-            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">AYUSH HUB</div>
+        <a href="index.html" class="logo">AYUSH HUB</a>
         <nav>
             <a href="index.html">Home</a>
             <a href="services.html">Services</a>
@@ -122,9 +130,9 @@
     </header>
 
     <div class="container">
-        <h1 class="title" data-aos="fade-down">About AYUSH HUB</h1>
-        <div class="about-text" data-aos="zoom-in" data-aos-delay="100">
-            <p>At <strong>AYUSH HUB</strong>, we focus on empowering individuals with holistic natural health strategies. Our platform brings together traditional wellness practices, personalized dietary insights, and sustainable lifestyle adaptations designed to prevent and address root causes of physical imbalance.</p>
+        <h2 class="section-title" data-aos="fade-down">About AYUSH HUB</h2>
+        <div class="about-box" data-aos="fade-up" data-aos-delay="100">
+            <p>At <strong>AYUSH HUB</strong>, we bridge the gap between ancient natural healing wisdom and modern lifestyle needs. Our mission is to educate, treat, and guide individuals toward sustainable mental and physical health using natural remedies and lifestyle balance.</p>
         </div>
     </div>
 
