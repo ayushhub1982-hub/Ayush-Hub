@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Articles - AYUSH HUB</title>
+    
+    <!-- AOS Animation Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f8f5;
+            color: #2c3e50;
+            line-height: 1.6;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 8%;
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1b4d3e;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: #2e7d32;
+            border-bottom: 2px solid #2e7d32;
+            padding-bottom: 4px;
+        }
+
+        .btn-consult {
+            background: #1b4d3e;
+            color: white;
+            padding: 10px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .btn-consult:hover {
+            background: #2e7d32;
+            transform: scale(1.05);
+        }
+
+        .container {
+            padding: 80px 8%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1b4d3e;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: #1b4d3e;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #1b4d3e;
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">AYUSH HUB</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="articles.html" class="active">Articles</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+        <a href="contact.html" class="btn-consult">Book Consultation</a>
+    </header>
+
+    <div class="container">
+        <h1 class="title" data-aos="zoom-in">Health Articles & Practical Guides</h1>
+        <p class="subtitle" data-aos="fade-up">Practical guides and natural tips to help you stay informed on preventive health.</p>
+
+        <div class="grid-3">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <h3>10 Tips for Daily Detox</h3>
+                <p>Simple morning habits and clean dietary routines to keep your body refreshed naturally.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <h3>Understanding Herbal Tea</h3>
+                <p>How daily botanical infusions help boost immunity, digestion, and systemic balance.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Stress Management Naturally</h3>
+                <p>Breathing exercises and herbal remedies designed to calm mind and lower anxiety.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AYUSH HUB. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+</html>
