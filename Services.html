@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - AYUSH HUB</title>
+    <title>AYUSH HUB - Services</title>
     
-    <!-- AOS Animation Library CSS -->
+    <!-- AOS Animation CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
@@ -44,6 +44,7 @@
             font-size: 1.6rem;
             font-weight: 700;
             color: #1b4d3e;
+            text-decoration: none;
         }
 
         nav a {
@@ -77,18 +78,19 @@
 
         .container {
             padding: 80px 8%;
+            min-height: calc(100vh - 160px);
         }
 
-        .title {
+        .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #1b4d3e;
             margin-bottom: 10px;
         }
 
         .subtitle {
             text-align: center;
-            color: #666;
+            color: #555;
             margin-bottom: 40px;
         }
 
@@ -123,14 +125,13 @@
             padding: 25px;
             background: #1b4d3e;
             color: white;
-            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">AYUSH HUB</div>
+        <a href="index.html" class="logo">AYUSH HUB</a>
         <nav>
             <a href="index.html">Home</a>
             <a href="services.html" class="active">Services</a>
@@ -142,19 +143,19 @@
     </header>
 
     <div class="container">
-        <h1 class="title" data-aos="fade-down">Our Holistic Services</h1>
+        <h2 class="section-title" data-aos="fade-down">Our Holistic Services</h2>
         <p class="subtitle" data-aos="fade-up">Explore our natural healing practices designed to restore balance to your mind and body.</p>
-
+        
         <div class="grid-3">
-            <div class="card" data-aos="flip-left" data-aos-delay="100">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
                 <h3>Naturopathy Consultations</h3>
                 <p>Personalized holistic plans focused on natural therapies, lifestyle alignment, and root-cause healing.</p>
             </div>
-            <div class="card" data-aos="flip-up" data-aos-delay="200">
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
                 <h3>Custom Diet & Nutrition</h3>
                 <p>Tailored meal strategies leveraging kitchen remedies and wholesome ingredients for daily vitality.</p>
             </div>
-            <div class="card" data-aos="flip-right" data-aos-delay="300">
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
                 <h3>Lifestyle Disorder Support</h3>
                 <p>Natural management routines for blood sugar, hypertension, weight control, and stress release.</p>
             </div>
