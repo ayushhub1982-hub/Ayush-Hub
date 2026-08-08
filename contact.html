@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - AYUSH HUB</title>
+    <title>AYUSH HUB - Contact Us</title>
     
-    <!-- AOS Animation Library CSS -->
+    <!-- AOS Animation CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
@@ -44,6 +44,7 @@
             font-size: 1.6rem;
             font-weight: 700;
             color: #1b4d3e;
+            text-decoration: none;
         }
 
         nav a {
@@ -77,25 +78,26 @@
 
         .container {
             padding: 80px 8%;
-            max-width: 600px;
-            margin: 0 auto;
+            min-height: calc(100vh - 160px);
         }
 
-        .title {
+        .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #1b4d3e;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
             background: white;
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
         }
 
         form input, form textarea {
@@ -127,14 +129,13 @@
             padding: 25px;
             background: #1b4d3e;
             color: white;
-            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">AYUSH HUB</div>
+        <a href="index.html" class="logo">AYUSH HUB</a>
         <nav>
             <a href="index.html">Home</a>
             <a href="services.html">Services</a>
@@ -146,11 +147,11 @@
     </header>
 
     <div class="container">
-        <h1 class="title" data-aos="fade-down">Book Your Consultation</h1>
-        <form data-aos="zoom-in" data-aos-delay="100">
+        <h2 class="section-title" data-aos="fade-down">Book a Consultation</h2>
+        <form data-aos="flip-up" data-aos-delay="100">
             <input type="text" placeholder="Your Full Name" required>
             <input type="email" placeholder="Your Email Address" required>
-            <textarea rows="5" placeholder="Describe your health goal or consultation query..." required></textarea>
+            <textarea rows="5" placeholder="Describe your health goal or query..." required></textarea>
             <button type="submit">Submit Request</button>
         </form>
     </div>
