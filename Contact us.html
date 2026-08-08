@@ -3,91 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Ayush Hub</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --primary-color: #11381e; --accent-color: #2e7d32; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #eef4f0; color: #333; }
-        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; max-width: 1200px; margin: 0 auto; }
-        .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .site-logo { height: 45px; width: 45px; border-radius: 50%; object-fit: cover; }
-        .logo-text { font-size: 20px; font-weight: 700; color: var(--primary-color); }
-        .nav-links { display: flex; gap: 20px; align-items: center; list-style: none; }
-        .nav-links a { text-decoration: none; color: #333; font-weight: 500; font-size: 15px; }
-        .btn-consultation { background: var(--primary-color); color: var(--white) !important; padding: 8px 18px; border-radius: 20px; }
-        
-        /* HERO BANNER FOR TOP SPACE FIX */
-        .hero-banner { position: relative; height: 220px; width: 100%; overflow: hidden; }
-        .hero-banner img { width: 100%; height: 100%; object-fit: cover; }
-        .hero-overlay { position: absolute; inset: 0; background: rgba(17, 56, 30, 0.7); display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 0 20px; }
-        .hero-overlay h1 { font-size: 32px; margin-bottom: 8px; font-weight: 700; }
-        .hero-overlay p { font-size: 15px; opacity: 0.9; max-width: 600px; }
+    <title>Contact Us - AYUSH HUB</title>
+    
+    <!-- AOS Animation Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-        .content-container { display: flex; justify-content: center; margin: 40px auto; padding: 0 20px; }
-        .contact-card { background: var(--white); padding: 40px 50px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); max-width: 550px; width: 100%; }
-        .contact-card h3 { color: var(--primary-color); font-size: 22px; margin-bottom: 12px; }
-        .contact-card p { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 25px; }
-        .contact-info-list { list-style: none; padding: 0; }
-        .contact-info-list li { margin-bottom: 20px; display: flex; align-items: flex-start; gap: 15px; }
-        .contact-info-list i { color: var(--accent-color); font-size: 18px; margin-top: 3px; }
-        footer { background: var(--primary-color); color: white; text-align: center; padding: 20px; margin-top: 50px; font-size: 13px; }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f8f5;
+            color: #2c3e50;
+            line-height: 1.6;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 8%;
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1b4d3e;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: #2e7d32;
+            border-bottom: 2px solid #2e7d32;
+            padding-bottom: 4px;
+        }
+
+        .btn-consult {
+            background: #1b4d3e;
+            color: white;
+            padding: 10px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .btn-consult:hover {
+            background: #2e7d32;
+            transform: scale(1.05);
+        }
+
+        .container {
+            padding: 80px 8%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1b4d3e;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form input, form textarea {
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        form button {
+            background: #1b4d3e;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: #2e7d32;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #1b4d3e;
+            color: white;
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
+
     <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo-container">
-                <img src="logo.jpeg" alt="Ayush Hub Logo" class="site-logo">
-                <span class="logo-text">AYUSH HUB</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Services.html">Services</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="Contact us.html" style="color: var(--accent-color); font-weight: 600;">Contact Us</a></li>
-                <li><a href="consultation.html" class="btn-consultation">Book Consultation</a></li>
-            </ul>
+        <div class="logo">AYUSH HUB</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="articles.html">Articles</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html" class="active">Contact Us</a>
         </nav>
+        <a href="contact.html" class="btn-consult">Book Consultation</a>
     </header>
 
-    <!-- TOP HERO BANNER -->
-    <div class="hero-banner">
-        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80" alt="Contact Us Banner">
-        <div class="hero-overlay">
-            <h1>Get in Touch with Us</h1>
-            <p>We are here to help you navigate your journey toward natural health and well-being.</p>
-        </div>
+    <div class="container">
+        <h1 class="title" data-aos="fade-down">Book Your Consultation</h1>
+        <form data-aos="zoom-in" data-aos-delay="100">
+            <input type="text" placeholder="Your Full Name" required>
+            <input type="email" placeholder="Your Email Address" required>
+            <textarea rows="5" placeholder="Describe your health goal or consultation query..." required></textarea>
+            <button type="submit">Submit Request</button>
+        </form>
     </div>
 
-    <main class="content-container">
-        <div class="contact-card">
-            <h3>Contact Information</h3>
-            <p>Whether you are seeking guidance on a natural diet plan or have queries, our wellness specialists are here to assist you.</p>
+    <footer>
+        <p>&copy; 2026 AYUSH HUB. All Rights Reserved.</p>
+    </footer>
 
-            <ul class="contact-info-list">
-                <li>
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div><strong>Our Wellness Hub</strong><br>Ayush Hub Digital Health Center, India</div>
-                </li>
-                <li>
-                    <i class="fa-solid fa-envelope"></i>
-                    <div><strong>Email Support</strong><br><a href="mailto:ayushhub1982@gmail.com" style="color: #333; text-decoration: none;">ayushhub1982@gmail.com</a></div>
-                </li>
-                <li>
-                    <i class="fa-solid fa-phone"></i>
-                    <div><strong>Phone / WhatsApp</strong><br><a href="tel:+919321430535" style="color: #333; text-decoration: none;">+91 9321430535</a></div>
-                </li>
-                <li>
-                    <i class="fa-solid fa-clock"></i>
-                    <div><strong>Working Hours</strong><br>Mon – Sat: 9:00 AM – 6:00 PM</div>
-                </li>
-            </ul>
-        </div>
-    </main>
-
-    <footer>&copy; 2026 Ayush Hub - All Rights Reserved | Gift of Nature</footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
 </body>
 </html>
