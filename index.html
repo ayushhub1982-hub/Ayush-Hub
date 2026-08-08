@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AYUSH HUB - Natural Healing & Wellness</title>
+    <title>AYUSH HUB - Home</title>
     
     <!-- AOS Animation Library CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <!-- Internal CSS Styles -->
     <style>
-        /* CSS Reset & General Setup */
         * {
             margin: 0;
             padding: 0;
@@ -18,15 +16,16 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             background-color: #f4f8f5;
             color: #2c3e50;
             line-height: 1.6;
-            overflow-x: hidden;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Navbar Styling */
@@ -46,6 +45,7 @@
             font-size: 1.6rem;
             font-weight: 700;
             color: #1b4d3e;
+            text-decoration: none;
         }
 
         nav a {
@@ -56,8 +56,10 @@
             transition: color 0.3s ease;
         }
 
-        nav a:hover {
+        nav a:hover, nav a.active {
             color: #2e7d32;
+            border-bottom: 2px solid #2e7d32;
+            padding-bottom: 4px;
         }
 
         .btn-consult {
@@ -75,9 +77,9 @@
             transform: scale(1.05);
         }
 
-        /* Hero Section Styling */
+        /* Hero Section */
         .hero {
-            height: 80vh;
+            height: calc(100vh - 80px);
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
             display: flex;
@@ -99,78 +101,6 @@
             max-width: 650px;
         }
 
-        /* Container & Grid Setup */
-        .section-container {
-            padding: 80px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: #1b4d3e;
-            margin-bottom: 40px;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        /* Card Styling & Hover Effects */
-        .card {
-            background: white;
-            padding: 35px 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .card h3 {
-            color: #1b4d3e;
-            margin-bottom: 12px;
-            font-size: 1.4rem;
-        }
-
-        /* Form Styling */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        form input, form textarea {
-            padding: 14px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            outline: none;
-            font-size: 1rem;
-        }
-
-        form button {
-            background: #1b4d3e;
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-
-        form button:hover {
-            background: #2e7d32;
-        }
-
         /* Footer */
         footer {
             text-align: center;
@@ -182,82 +112,23 @@
 </head>
 <body>
 
-    <!-- Header Navigation -->
+    <!-- Header Navigation with Direct Multi-Page Links -->
     <header>
-        <div class="logo">AYUSH HUB</div>
+        <a href="index.html" class="logo">AYUSH HUB</a>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#articles">Articles</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact Us</a>
+            <a href="index.html" class="active">Home</a>
+            <a href="services.html">Services</a>
+            <a href="articles.html">Articles</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
         </nav>
-        <a href="#contact" class="btn-consult">Book Consultation</a>
+        <a href="contact.html" class="btn-consult">Book Consultation</a>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero" data-aos="fade-down">
+    <!-- Only Home Content -->
+    <section class="hero" data-aos="zoom-in">
         <h1>Welcome to AYUSH HUB</h1>
         <p>Natural Healing & Holistic Wellness Solutions tailored for your daily vitality.</p>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="section-container">
-        <h2 class="section-title" data-aos="fade-up">Our Holistic Services</h2>
-        <div class="grid-3">
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
-                <h3>Naturopathy Consultations</h3>
-                <p>Root-cause healing focused on natural therapies and lifestyle alignment.</p>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="200">
-                <h3>Custom Diet & Nutrition</h3>
-                <p>Personalized meal strategies leveraging kitchen remedies and clean food.</p>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <h3>Lifestyle Disorder Support</h3>
-                <p>Natural routines for blood sugar, hypertension, and stress control.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Articles Section -->
-    <section id="articles" class="section-container" style="background-color: #eaf2ec;">
-        <h2 class="section-title" data-aos="fade-up">Health Articles</h2>
-        <div class="grid-3">
-            <div class="card" data-aos="zoom-in" data-aos-delay="100">
-                <h3>10 Tips for Daily Detox</h3>
-                <p>Simple habits to keep your digestive system clean and healthy naturally.</p>
-            </div>
-            <div class="card" data-aos="zoom-in" data-aos-delay="200">
-                <h3>Herbal Tea Remedies</h3>
-                <p>How botanical infusions improve immune health and promote calm.</p>
-            </div>
-            <div class="card" data-aos="zoom-in" data-aos-delay="300">
-                <h3>Managing Stress Daily</h3>
-                <p>Breathing techniques and natural routines to control daily anxiety.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section-container">
-        <div style="max-width: 800px; margin: 0 auto; text-align: center;" data-aos="fade-up">
-            <h2 class="section-title">About AYUSH HUB</h2>
-            <p style="font-size: 1.1rem; color: #555;">
-                AYUSH HUB is dedicated to bridging the gap between ancient natural healing wisdom and modern lifestyle needs. Our mission is to educate, treat, and guide individuals toward sustainable holistic health.
-            </p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section-container" style="background-color: #eaf2ec;">
-        <h2 class="section-title" data-aos="fade-up">Book a Consultation</h2>
-        <form data-aos="flip-up">
-            <input type="text" placeholder="Your Full Name" required>
-            <input type="email" placeholder="Your Email Address" required>
-            <textarea rows="5" placeholder="Describe your health goal or query..." required></textarea>
-            <button type="submit">Submit Request</button>
-        </form>
     </section>
 
     <!-- Footer -->
@@ -268,7 +139,6 @@
     <!-- AOS JavaScript Animation Library -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // AOS Animation Engine Initialize
         AOS.init({
             duration: 800,
             once: true
