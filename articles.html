@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Articles - AYUSH HUB</title>
+    <title>AYUSH HUB - Articles</title>
     
-    <!-- AOS Animation Library CSS -->
+    <!-- AOS Animation CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
@@ -44,6 +44,7 @@
             font-size: 1.6rem;
             font-weight: 700;
             color: #1b4d3e;
+            text-decoration: none;
         }
 
         nav a {
@@ -77,18 +78,19 @@
 
         .container {
             padding: 80px 8%;
+            min-height: calc(100vh - 160px);
         }
 
-        .title {
+        .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #1b4d3e;
             margin-bottom: 10px;
         }
 
         .subtitle {
             text-align: center;
-            color: #666;
+            color: #555;
             margin-bottom: 40px;
         }
 
@@ -123,14 +125,13 @@
             padding: 25px;
             background: #1b4d3e;
             color: white;
-            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">AYUSH HUB</div>
+        <a href="index.html" class="logo">AYUSH HUB</a>
         <nav>
             <a href="index.html">Home</a>
             <a href="services.html">Services</a>
@@ -142,21 +143,21 @@
     </header>
 
     <div class="container">
-        <h1 class="title" data-aos="zoom-in">Health Articles & Practical Guides</h1>
+        <h2 class="section-title" data-aos="fade-down">Health Articles</h2>
         <p class="subtitle" data-aos="fade-up">Practical guides and natural tips to help you stay informed on preventive health.</p>
 
         <div class="grid-3">
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card" data-aos="zoom-in" data-aos-delay="100">
                 <h3>10 Tips for Daily Detox</h3>
-                <p>Simple morning habits and clean dietary routines to keep your body refreshed naturally.</p>
+                <p>Simple morning habits and natural dietary routines to keep your body clean and energized.</p>
             </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="200">
-                <h3>Understanding Herbal Tea</h3>
-                <p>How daily botanical infusions help boost immunity, digestion, and systemic balance.</p>
+            <div class="card" data-aos="zoom-in" data-aos-delay="200">
+                <h3>Herbal Tea Remedies</h3>
+                <p>How daily botanical infusions improve immune health, digestion, and systemic balance.</p>
             </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <h3>Stress Management Naturally</h3>
-                <p>Breathing exercises and herbal remedies designed to calm mind and lower anxiety.</p>
+            <div class="card" data-aos="zoom-in" data-aos-delay="300">
+                <h3>Managing Stress Daily</h3>
+                <p>Breathing techniques and organic natural routines to keep your daily anxiety levels under control.</p>
             </div>
         </div>
     </div>
