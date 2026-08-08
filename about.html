@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AYUSH HUB - About Us</title>
     
-    <!-- AOS Animation CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
@@ -76,35 +75,55 @@
             transform: scale(1.05);
         }
 
-        .container {
-            padding: 80px 8%;
-            min-height: calc(100vh - 160px);
+        .hero-banner {
+            height: 35vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-
-        .section-title {
+            color: white;
             text-align: center;
-            font-size: 2.2rem;
-            color: #1b4d3e;
-            margin-bottom: 20px;
+            padding: 0 20px;
         }
 
-        .about-box {
+        .container {
+            padding: 60px 8%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-card {
             background: white;
-            padding: 40px;
             border-radius: 12px;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            max-width: 800px;
-            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
-        .about-box p {
-            font-size: 1.15rem;
-            color: #444;
-            line-height: 1.8;
+        .about-card img {
+            width: 50%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .about-text {
+            width: 50%;
+            padding: 40px;
+        }
+
+        .about-text h2 {
+            color: #1b4d3e;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .about-card img, .about-text {
+                width: 100%;
+            }
         }
 
         footer {
@@ -112,6 +131,7 @@
             padding: 25px;
             background: #1b4d3e;
             color: white;
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -129,10 +149,18 @@
         <a href="contact.html" class="btn-consult">Book Consultation</a>
     </header>
 
+    <div class="hero-banner" data-aos="fade-down">
+        <h1>About AYUSH HUB</h1>
+        <p>Bridging ancient natural wisdom with modern life.</p>
+    </div>
+
     <div class="container">
-        <h2 class="section-title" data-aos="fade-down">About AYUSH HUB</h2>
-        <div class="about-box" data-aos="fade-up" data-aos-delay="100">
-            <p>At <strong>AYUSH HUB</strong>, we bridge the gap between ancient natural healing wisdom and modern lifestyle needs. Our mission is to educate, treat, and guide individuals toward sustainable mental and physical health using natural remedies and lifestyle balance.</p>
+        <div class="about-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=600&q=80" alt="About Us Wellness">
+            <div class="about-text">
+                <h2>Our Mission & Vision</h2>
+                <p>At <strong>AYUSH HUB</strong>, we bridge the gap between ancient natural healing wisdom and modern lifestyle needs. Our mission is to educate, treat, and guide individuals toward sustainable mental and physical health using natural remedies and lifestyle balance.</p>
+            </div>
         </div>
     </div>
 
