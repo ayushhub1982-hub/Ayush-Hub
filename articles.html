@@ -1,194 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AYUSH HUB - Articles</title>
-    
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f4f8f5;
-            color: #2c3e50;
-            line-height: 1.6;
-            animation: fadeIn 0.8s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 8%;
-            background: #ffffff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #1b4d3e;
-            text-decoration: none;
-        }
-
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #444;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover, nav a.active {
-            color: #2e7d32;
-            border-bottom: 2px solid #2e7d32;
-            padding-bottom: 4px;
-        }
-
-        .btn-consult {
-            background: #1b4d3e;
-            color: white;
-            padding: 10px 22px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-
-        .btn-consult:hover {
-            background: #2e7d32;
-            transform: scale(1.05);
-        }
-
-        .hero-banner {
-            height: 35vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1512290900673-0ed5c102c919?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .container {
-            padding: 60px 8%;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 25px;
-            text-align: center;
-        }
-
-        .card-content h3 {
-            color: #1b4d3e;
-            margin-bottom: 12px;
-            font-size: 1.3rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #1b4d3e;
-            color: white;
-            margin-top: 50px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles - AYUSH HUB</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    :root { --primary: #1b4332; --primary-light: #2d6a4f; --accent: #d8f3dc; --dark: #1d2d44; --light: #f8f9fa; --text: #2b2d42; }
+    body { display: flex; flex-direction: column; min-height: 100vh; color: var(--text); background-color: var(--light); line-height: 1.6; }
+    header { background-color: #ffffff; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); position: sticky; top: 0; z-index: 1000; }
+    .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; max-width: 1200px; margin: 0 auto; width: 100%; }
+    .logo { font-size: 1.6rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+    .nav-links { display: flex; list-style: none; gap: 24px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary-light); }
+    .btn-consultation { background-color: var(--primary-light); color: white !important; padding: 9px 18px; border-radius: 6px; text-decoration: none; }
+    .mobile-menu-btn { display: none; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: var(--primary); }
+    main { flex: 1; max-width: 1200px; width: 100%; margin: 0 auto; padding: 40px 20px; }
+    .section-title { text-align: center; color: var(--primary); font-size: 2.2rem; margin-bottom: 30px; }
+    .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); border-top: 4px solid var(--primary-light); }
+    .card h3 { color: var(--primary); margin-bottom: 12px; font-size: 1.3rem; }
+    footer { background-color: var(--primary); color: white; text-align: center; padding: 25px 20px; margin-top: auto; }
+    @media (max-width: 768px) {
+      .mobile-menu-btn { display: block; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+      .nav-links.active { display: flex; }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">AYUSH HUB</a>
+      <button class="mobile-menu-btn" id="menuToggle">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="article.html" class="active">Articles</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="consultation.html" class="btn-consultation">Book Consultation</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <header>
-        <a href="index.html" class="logo">AYUSH HUB</a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="articles.html" class="active">Articles</a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact Us</a>
-        </nav>
-        <a href="contact.html" class="btn-consult">Book Consultation</a>
-    </header>
-
-    <div class="hero-banner" data-aos="fade-down">
-        <h1>Health Articles & Guides</h1>
-        <p>Practical guides and natural tips to help you stay informed on preventive health.</p>
+  <main>
+    <h1 class="section-title">Educational Health Articles</h1>
+    <div class="grid-container">
+      <div class="card">
+        <h3>5 Daily Habits for Natural Immunity</h3>
+        <p>Discover actionable daily routines you can adopt right now to significantly boost your natural defense mechanisms.</p>
+      </div>
+      <div class="card">
+        <h3>Understanding Naturopathy & Nature Cure</h3>
+        <p>An insightful breakdown into the foundational laws of nature-based healing and preventive wellness.</p>
+      </div>
+      <div class="card">
+        <h3>The Power of Raw Food Nutrition</h3>
+        <p>Why integrating raw, living foods into your diet can dramatically refine your digestion and overall vitality.</p>
+      </div>
     </div>
+  </main>
 
-    <div class="container">
-        <div class="grid-3">
-            <div class="card" data-aos="zoom-in" data-aos-delay="100">
-                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" alt="Detox Tips">
-                <div class="card-content">
-                    <h3>10 Tips for Daily Detox</h3>
-                    <p>Simple morning habits and natural dietary routines to keep your body clean and energized.</p>
-                </div>
-            </div>
-            <div class="card" data-aos="zoom-in" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" alt="Herbal Tea">
-                <div class="card-content">
-                    <h3>Herbal Tea Remedies</h3>
-                    <p>How daily botanical infusions improve immune health, digestion, and systemic balance.</p>
-                </div>
-            </div>
-            <div class="card" data-aos="zoom-in" data-aos-delay="300">
-                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80" alt="Stress Relief">
-                <div class="card-content">
-                    <h3>Managing Stress Daily</h3>
-                    <p>Breathing techniques and organic natural routines to keep your daily anxiety levels under control.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+  <footer>
+    <p>&copy; 2026 AYUSH HUB. All Rights Reserved.</p>
+  </footer>
 
-    <footer>
-        <p>&copy; 2026 AYUSH HUB. All Rights Reserved.</p>
-    </footer>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-    </script>
+  <script>
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
